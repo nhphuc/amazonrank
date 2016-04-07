@@ -7,17 +7,18 @@
 <body>
 
     <form method="post">
-        <input name="group" type="text" />
-        <input name="rank" type="text" />
-        <input name="time" type="text" />
-        <input type="submit" value="Nhap" />
+        <p>Nhóm sản phẩm: <input name="group" type="text" /> </p>
+        <p>Rank hiện tại: <input name="rank" type="text" /></p>
+        <p>Thời gian check:<input name="time" type="text" /></p>
+        <br> <input type="submit" value="Nhap" />
     </form>
 
     {% for rank in rank_list %}
         <h1>{{ rank.id_sanpham }}</h1>
-        <h2>{{ rank.group }}</h2>
-        <h2>{{ rank.rank }}</h2>
-        <h2>{{ rank.time }}</h2>
+        <p>{{ rank.group }}</p>
+
+        <p>{{ rank.rank }}</p>
+        <p>{{ rank.time }}</p>
     {% endfor %}
 
 

@@ -3,25 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        table { border-collapse: collapse; }
+        tr { display: block; float: left; }
+        th, td { display: block; border: 1px solid black; }
+    </style>
+
 </head>
 <body>
 
-    <form method="post">
-        <p>Nhóm sản phẩm: <input name="group" type="text" /> </p>
-        <p>Rank hiện tại: <input name="rank" type="text" /></p>
-        <p>Thời gian check:<input name="time" type="text" /></p>
-        <br> <input type="submit" value="Nhap" />
-    </form>
+    {% for sp in sanpham %}
+        <h2> {{ sp.ten_sanpham }}</h2>
+        {% for nhom in sp.nhom %}
+            <h3>{{ nhom.ten_nhom }}</h3>
 
-    {% for rank in rank_list %}
-        <h1>{{ rank.id_sanpham }}</h1>
-        <p>{{ rank.group }}</p>
+             <table style="width:100%">
+                <tr>
+                    <td>Rank</td>
+                    <td>Time</td>
+                </tr>
+                {% for rank in nhom.xephang %}
 
-        <p>{{ rank.rank }}</p>
-        <p>{{ rank.time }}</p>
+                  <tr>
+                    <td>{{ rank.rank }}</td>
+                    <td>{{ rank.time }}</td>
+                  </tr>
+                {% endfor %}
+            </table>
+
+
+
+        {% endfor %}
     {% endfor %}
 
 
-</body>
+
 </body>
 </html>

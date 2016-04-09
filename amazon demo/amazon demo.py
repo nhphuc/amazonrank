@@ -28,26 +28,41 @@ class Nhom(EmbeddedDocument):
     ten_nhom = StringField()
     xephang = ListField(EmbeddedDocumentField(Xephang))
 
-class Sanpham(EmbeddedDocument):
+class Sanpham(Document):
     ten_sanpham = StringField()
     nhom = ListField(EmbeddedDocumentField(Nhom))
 
-class Username(Document):
-    username= StringField()
-    sanpham = ListField(EmbeddedDocumentField(Sanpham))
 
+# class Username(Document):
+#     username= StringField()
+#     sanpham = ListField(EmbeddedDocumentField(Sanpham))
+#
 
 
 # comment1 = Comment(content='Good work!')
 # comment2 = Comment(content='Nice article!')
 # page = Page(comments=[comment1, comment2])
 
-xephang1 = Xephang(rank='123',time='130116')
-nhom1 = Nhom(ten_nhom='kitchen',xephang=[xephang1])
-sanpham1= Sanpham(ten_sanpham="ABCD",nhom=[nhom1])
-username = Username(username="testsanpham",sanpham=[sanpham1])
+# xephang1 = Xephang(rank='12',time='130116')
+# xephang2 = Xephang(rank='12',time='140116')
+# nhom1=Nhom(ten_nhom="garden",xephang=[xephang1,xephang2])
+# sanpham= Sanpham(ten_sanpham="ABC",nhom=[nhom1])
+# # username = Username(username="testsanpham",sanpham=[sanpham1])
+# sanpham.save()
 
-username.save()
+# xephang3 = Xephang(rank='115',time='140116')
+# for sp in Sanpham.objects(ten_sanpham = "ABC"):
+#     for n in sp.nhom:
+#         n.xephang.append(xephang3)
+#         n.save()
+
+# for sp in Sanpham.objects():
+#     print(sp.ten_sanpham)
+#     for n in sp.nhom:
+#         print(n.ten_nhom)
+#         for rank in n.xephang:
+#             print(rank.rank)
+#             print(rank.time)
 
 @app.route('/testsanpham', methods=['GET', 'POST'])
 def sanpham():
@@ -57,12 +72,14 @@ def sanpham():
         y=request.form['rank']
         z=request.form['time']
         return "Ôi ra rồi sướng quá anh "+ x +" ơi " +" rank " +y +" time "+ z
-    # return render_template("user_sanpham.html",rank_list=rank_list)
+    return render_template("user_sanpham.html",sanpham =Sanpham.objects)
     return 'Hello World!'
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template("login.html")
+
+
 
 
 if __name__ == '__main__':

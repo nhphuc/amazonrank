@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+    <form action="form_dangky.html" method="post">
+    <table width="400" border="2" cellpadding="5" align="center">
+        <tr>
+            <th colspan="2">ĐăngKý</th>
+        </tr>
+    <tr>
+        <td>Full name</td>
+        <td>
+            <input type="text" name="fname" size="30"placeholder="Nhập fullname">
+        </td>
+    </tr>
+        <tr>
+        <td>Username</td>
+            <td>
+            <input type="text" name="user" size="30" placeholder="Nhập Tên">
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="password" name="pass" size="15" placeholder="Nhập Mật khẩu">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Nhập Lại Password </td>
+                <td>
+                    <input type="password" name="repass" size="30" placeholder="Nhập Lại Mật Khẩu">
+                </td>
+        </tr>
+        <tr>
+            <td>Giới Tính</td>
+            <td>
+                <label>
+                <input type="radio" name="gioitinh" id="name"> Nam
+                </label>
+
+                <label>
+                <input type="radio" name="gioitinh" id="nu"> Nữ
+                </label>
+            </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Ngày sinh></td>
+        <td>
+            <select name ="day">
+                <option value="ngay 1">Ngày 1</option>
+                <option value="ngay 2">Ngày 2</option>
+                <option value="ngay 3">Ngày 3</option>
+             </select>
+
+            <select name="month">
+                <option value="thang 1">Ngày 1</option>
+                <option value="thang 2">Ngày 3</option>
+                <option value="thang 3">Ngày 3</option>
+            </select>
+
+            <select name="year">
+                <option value="nam 2015">năm 2015</option>
+                <option value="nam 2014">năm 2014</option>
+                <option value="nam 2013">năm 2013</option>
+            </select>
+         </td>
+        </tr>
+
+        <tr>
+            <td>Địa chỉ</td>
+            <td>
+                <textarea col="20">
+                </textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Hình Đại Diện</td>
+            <td>
+                <><input type="file" name="avatar">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="reset" name="reset" value="Reset"> &nbsp;&nbsp;
+                <input type="submit" name="ok" value="OK">
+            </td>
+        </tr>
+    </table>
+        </form>
+
+</body>
+</html>
